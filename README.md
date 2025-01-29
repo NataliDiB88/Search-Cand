@@ -1,79 +1,33 @@
-# Candidate Search
+# React + TypeScript + Vite
 
-## Description
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-The Candidate Search application is a tool designed for employers to find and manage potential candidates for hiring. This application fetches user data from the GitHub API and displays it in an easy-to-navigate interface. Users can view detailed candidate profiles, save potential candidates to a list, and manage these candidates effectively.
+Currently, two official plugins are available:
 
-## User Story
+* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh
+* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc), which uses [SWC](https://swc.rs/) for Fast Refresh
 
-```md
-AS AN employer
-I WANT a candidate search application
-SO THAT I can hire the best candidates
+## Expanding the ESLint configuration
 
+If you're developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-# Features
-Fetches candidate data from the GitHub API
+* Configure the top-level `parserOptions` property as follows:
 
-Displays candidate profiles including name, username, location, avatar, email, GitHub URL, and company
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-Allows employers to save candidates to a potential candidates list
+* Replace `plugin:@typescript-eslint/recommended` with `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`.
+* Optionally, add `plugin:@typescript-eslint/stylistic-type-checked`.
+* Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` and `plugin:react/jsx-runtime` to the `extends` list.
 
-Persist data using localStorage
-
-View a list of saved potential candidates
-
-
-## Installation
-
-Clone the repository:
-
-
-git clone <repository-url>
-Navigate to the project directory:
-
-cd candidate-search
-Install dependencies:
-
-
-npm install
-Create a .env file in the environment folder with your GitHub API token:
-
-
-VITE_GITHUB_TOKEN=<your-github-token>
-
-## Candidate Search Page
-
-View information for a candidate.
-
-Click the "+" button to save the candidate to the potential candidates list.
-
-Click the "-" button to skip the candidate.
-
-## Potential Candidates Page
-
-View a list of saved potential candidates.
-
-Click the "-" button to remove a candidate from the list
-
-## Screenshots
-
-The candidate search page displays a candidate's information and allows the user to accept or reject the candidate and view a list of potential candidates.
-
-The potential candidates page displays a list of potential candidates and allows the user to reject a candidate.
-
-## Technologies Used
-
-TypeScript
-
-React
-
-GitHub API
-
-LocalStorage
-
-Render (for deployment)
-
-Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any changes.
+---
+© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
